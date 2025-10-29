@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Διαμεσολαβητής δεδομένων μελετών PISA
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Η είσοδος στη εφαρμογή PISA STUDIES DATA BROKER (PSDB) γίνεται στο <https://data.pisa4u.gr/>
 
-## Commands
+## ΕΓΧΕΙΡΙΔΙΟ ΧΡΗΣΗΣ
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [1. Εισαγωγή](chapter1.md)
+- [2. Τεχνικά χαρακτηριστικά](chapter2.md)
+- [3. Λειτουργικότητα](chapter3.md)
+- [4. Συμπληρωματικές πληροφορίες](chapter4.md)
