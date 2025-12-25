@@ -1,0 +1,1602 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter2/">
+      
+      
+        <link rel="next" href="../chapter4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>3. Λειτουργικότητα - Pisa Studies Data Broker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Pisa Studies Data Broker" class="md-header__button md-logo" aria-label="Pisa Studies Data Broker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pisa Studies Data Broker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Λειτουργικότητα
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Διαμεσολαβητής δεδομένων μελετών PISA
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Εισαγωγή
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Τεχνικά χαρακτηριστικά
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Λειτουργικότητα
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Συμπληρωματικές πληροφορίες
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Pisa Studies Data Broker" class="md-nav__button md-logo" aria-label="Pisa Studies Data Broker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pisa Studies Data Broker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Διαμεσολαβητής δεδομένων μελετών PISA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Εισαγωγή
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Τεχνικά χαρακτηριστικά
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Λειτουργικότητα
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Λειτουργικότητα
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Ευρετήριο Δεδομένων PISA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Ευρετήριο Δεδομένων PISA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Επισκόπηση"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Ανά Κύμα"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Αναζήτηση"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Πώς Λειτουργούν οι Κωδικοί Κοινής Χρήσης:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Λήψης:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Οδηγός Εξαγωγής Δεδομένων PISA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Οδηγός Εξαγωγής Δεδομένων PISA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Συμβουλές για Εξαγωγή Δεδομένων
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Εξαγωγής Δεδομένων
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Τάσεις Μεταβλητών Ανά Κύκλο
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Σύγκριση Δεδομένων Μαθητών-Σχολείων
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Αναζήτηση &amp; Ανακάλυψη Στηλών
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Αναζήτηση &amp; Ανακάλυψη Στηλών">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ροή Εργασίας:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Αναζήτησης &amp; Εξαγωγής:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Οπτικοποίηση Δεδομένων Χωρών
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Προσαρμοσμένα Ερωτήματα SQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Προσαρμοσμένα Ερωτήματα SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Σημαντικές Σημειώσεις:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Εκτέλεσης Ερωτήματος:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Πίνακας Διαχείρισης Διαχειριστή
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 Πίνακας Διαχείρισης Διαχειριστή">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Σημαντικές Σημειώσεις:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Όλοι οι Χρήστες"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Εκκρεμείς Εγκρίσεις"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Στατιστικά"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Database Maintenance" (Συντήρηση Βάσης Δεδομένων)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Συμπληρωματικές πληροφορίες
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Ευρετήριο Δεδομένων PISA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Ευρετήριο Δεδομένων PISA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Επισκόπηση"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Ανά Κύμα"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Αναζήτηση"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Πώς Λειτουργούν οι Κωδικοί Κοινής Χρήσης:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Λήψης:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-pisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Οδηγός Εξαγωγής Δεδομένων PISA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Οδηγός Εξαγωγής Δεδομένων PISA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Συμβουλές για Εξαγωγή Δεδομένων
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Εξαγωγής Δεδομένων
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Τάσεις Μεταβλητών Ανά Κύκλο
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Σύγκριση Δεδομένων Μαθητών-Σχολείων
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Αναζήτηση &amp; Ανακάλυψη Στηλών
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Αναζήτηση &amp; Ανακάλυψη Στηλών">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ροή Εργασίας:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Αναζήτησης &amp; Εξαγωγής:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Οπτικοποίηση Δεδομένων Χωρών
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Προσαρμοσμένα Ερωτήματα SQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Προσαρμοσμένα Ερωτήματα SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Σημαντικές Σημειώσεις:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Βήματα Εκτέλεσης Ερωτήματος:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Πίνακας Διαχείρισης Διαχειριστή
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 Πίνακας Διαχείρισης Διαχειριστή">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Σημαντικές Σημειώσεις:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Όλοι οι Χρήστες"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Εκκρεμείς Εγκρίσεις"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Στατιστικά"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Καρτέλα "Database Maintenance" (Συντήρηση Βάσης Δεδομένων)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3">3. Λειτουργικότητα</h1>
+<h2 id="31-pisa">3.1 Ευρετήριο Δεδομένων PISA</h2>
+<p>Το "Ευρετήριο Δεδομένων PISA" παρέχει ένα πλήρες κατάλογο όλων των κυμάτων (ετών), πινάκων και μεταβλητών των μελετών PISA. Μπορείτε να περιηγηθείτε και να αναζητήσετε πληροφορίες για τα διαθέσιμα δεδομένα.</p>
+<p>Η λειτουργία χωρίζεται σε τρεις κύριες καρτέλες: "Επισκόπηση", "Ανά Κύμα" και "Αναζήτηση".</p>
+<h3 id="_1">Καρτέλα "Επισκόπηση"</h3>
+<p>Η καρτέλα "Επισκόπηση" παρέχει μια γενική εικόνα των δεδομένων PISA:</p>
+<ol>
+<li>
+<p><strong>Σύνοψη Δεδομένων.</strong> Εμφανίζει συνολικούς αριθμούς για τα κύματα, τους πίνακες, τις γραμμές και τις στήλες που περιέχονται στη βάση δεδομένων.</p>
+<p><img alt="Γενική επισκόπηση δεδομένων" src="../images/chapter3/1.png" /></p>
+</li>
+<li>
+<p><strong>Ανάλυση ανά Κύμα.</strong> Παρουσιάζει έναν πίνακα με αναλυτικά στατιστικά για κάθε κύμα PISA (όπως πλήθος πινάκων, γραμμών και στηλών, καθώς και κατανομή τύπων πινάκων).</p>
+<p><img alt="Ανάλυση στατιστικών ανά κύμα PISA" src="../images/chapter3/2.png" /></p>
+</li>
+<li>
+<p><strong>Οπτικοποιήσεις.</strong> Εμφανίζει γραφήματα (π.χ. ραβδογράμματα) που απεικονίζουν το πλήθος των πινάκων και των γραμμών ανά κύμα PISA.</p>
+<p><img alt="Οπτικοποιήσεις πινάκων και γραμμών ανά κύμα" src="../images/chapter3/3.png" /></p>
+</li>
+</ol>
+<h3 id="_2">Καρτέλα "Ανά Κύμα"</h3>
+<p>Η καρτέλα "Ανά Κύμα" επιτρέπει την εξερεύνηση των δεδομένων ανά συγκεκριμένο κύμα PISA:</p>
+<ol>
+<li>
+<p><strong>Επιλογή Κύματος.</strong> Επιλέξτε ένα κύμα PISA (π.χ. <code>PISA 2018</code>) από την αναπτυσσόμενη λίστα.</p>
+<p><img alt="Επιλογή κύματος PISA για λεπτομερή προβολή" src="../images/chapter3/4.png" /></p>
+</li>
+<li>
+<p><strong>Στατιστικά Κύματος.</strong> Μετά την επιλογή κύματος, εμφανίζονται συνοπτικά στατιστικά για το συγκεκριμένο κύμα (π.χ. σύνολο πινάκων, γραμμών, στηλών και τύπων πινάκων).</p>
+<p><img alt="Στατιστικά για το επιλεγμένο κύμα PISA" src="../images/chapter3/5.png" /></p>
+</li>
+<li>
+<p><strong>Πίνακες ανά Τύπο.</strong> Οι πίνακες του επιλεγμένου κύματος ομαδοποιούνται ανά τύπο (π.χ. Μαθητές, Σχολεία, Γνωστικά). Για κάθε τύπο, μπορείτε να επεκτείνετε την ενότητα για να δείτε μια λίστα πινάκων.</p>
+<p><img alt="Πίνακες ομαδοποιημένοι ανά τύπο" src="../images/chapter3/6.png" /></p>
+</li>
+<li>
+<p><strong>Λεπτομέρειες Πίνακα και Ετικέτες.</strong> Για κάθε πίνακα, εμφανίζονται βασικές πληροφορίες. Μπορείτε να πατήσετε "Εμφάνιση Ετικετών" για να δείτε έναν πίνακα με τις μεταβλητές του πίνακα και τις περιγραφές τους. Εάν υπάρχουν πολλές ετικέτες, μπορείτε να τις αναζητήσετε.</p>
+<p><img alt="Προβολή ετικετών μεταβλητών πίνακα" src="../images/chapter3/7.png" /></p>
+</li>
+</ol>
+<h3 id="_3">Καρτέλα "Αναζήτηση"</h3>
+<p>Η καρτέλα "Αναζήτηση" επιτρέπει την αναζήτηση πινάκων με βάση έναν όρο αναζήτησης:</p>
+<ol>
+<li>
+<p><strong>Εισαγωγή Όρου Αναζήτησης.</strong> Πληκτρολογήστε έναν όρο αναζήτησης (π.χ. "Μαθητές", "2018", "Γνωστικά") στο πεδίο αναζήτησης.</p>
+<p><img alt="Εισαγωγή όρου αναζήτησης πινάκων" src="../images/chapter3/8.png" /></p>
+</li>
+<li>
+<p><strong>Αποτελέσματα Αναζήτησης.</strong> Εάν βρεθούν αποτελέσματα, αυτά εμφανίζονται σε αναπτυσσόμενες ενότητες. Για κάθε πίνακα που ταιριάζει με τον όρο αναζήτησης, μπορείτε να δείτε τον τύπο του, την περιγραφή του, το πλήθος των γραμμών και των στηλών του, καθώς και να εμφανίσετε τις ετικέτες των μεταβλητών του.</p>
+<p><img alt="Προβολή αποτελεσμάτων αναζήτησης πινάκων" src="../images/chapter3/9.png" /></p>
+</li>
+</ol>
+<h2 id="32-pisa">3.2 Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης</h2>
+<p>Η λειτουργία "Λήψη Δεδομένων PISA μέσω Κωδικού Κοινής Χρήσης" επιτρέπει στους χρήστες να ανακτήσουν ένα αρχείο εξαγωγής δεδομένων χρησιμοποιώντας έναν μοναδικό κωδικό κοινής χρήσης που έχει δημιουργηθεί προηγουμένως (π.χ. από τον Οδηγό Εξαγωγής Δεδομένων).</p>
+<h3 id="_4">Πώς Λειτουργούν οι Κωδικοί Κοινής Χρήσης:</h3>
+<ul>
+<li><strong>Προσωρινοί και Ασφαλείς</strong>: Κάθε κωδικός κοινής χρήσης συνδέεται μοναδικά με ένα συγκεκριμένο αρχείο εξαγωγής.</li>
+<li><strong>Αποθηκεύονται μέχρι την Κυριακή</strong>: Όλες οι εξαγωγές διατηρούνται μέχρι την επόμενη Κυριακή στις 00:00 (μεσάνυχτα) ώρα Ελλάδας (EET/EEST). Μετά από αυτό, διαγράφονται αυτόματα.</li>
+<li><strong>Εύκολα Κοινοποιήσιμοι</strong>: Μπορείτε να κοινοποιήσετε τον κωδικό σας σε άλλους για να τους επιτρέψετε να κατεβάσουν την ίδια εξαγωγή.</li>
+<li><strong>Ιδανικοί για Μεγάλες Εξαγωγές</strong>: Συνιστάται για μεγαλύτερα σύνολα δεδομένων ή όταν χρειάζεστε να ανακτήσετε το αρχείο αργότερα.</li>
+<li><strong>Σημείωση</strong>: Οποιοσδήποτε έχει τον κωδικό κοινής χρήσης μπορεί να έχει πρόσβαση στην σχετική εξαγωγή.</li>
+</ul>
+<h3 id="_5">Βήματα Λήψης:</h3>
+<ol>
+<li>
+<p><strong>Εισαγωγή Κωδικού Κοινής Χρήσης.</strong> Στο πεδίο "Εισάγετε Κωδικό Κοινής Χρήσης", πληκτρολογήστε τον κωδικό που έχετε λάβει (π.χ. <code>73adb3505065-cb9a77f6a61f</code>).</p>
+<p><img alt="Εισαγωγή κωδικού κοινής χρήσης" src="../images/chapter3/10.png" /></p>
+</li>
+<li>
+<p><strong>Ανάκτηση και Λήψη Αρχείου.</strong> Μόλις εισαχθεί ο κωδικός, το σύστημα θα επιχειρήσει να ανακτήσει τα μεταδεδομένα του αρχείου. Εάν η ανάκτηση είναι επιτυχής, θα εμφανιστεί ένα κουμπί "Λήψη Αρχείου" με το όνομα του αρχείου. Πατήστε αυτό το κουμπί για να κατεβάσετε το αρχείο.</p>
+<p><img alt="Κουμπί λήψης αρχείου με κωδικό κοινής χρήσης" src="../images/chapter3/11.png" /></p>
+</li>
+</ol>
+<h2 id="33-pisa">3.3 Οδηγός Εξαγωγής Δεδομένων PISA</h2>
+<p>Η λειτουργία "Οδηγός Εξαγωγής Δεδομένων PISA" επιτρέπει στους χρήστες να επιλέγουν και να εξάγουν συγκεκριμένα σύνολα δεδομένων από την ενιαία Βάση Δεδομένων PISA. Ο οδηγός ακολουθεί μια σειρά βημάτων για τη διαμόρφωση της εξαγωγής σας.</p>
+<h3 id="_6">Συμβουλές για Εξαγωγή Δεδομένων</h3>
+<p>Πριν ξεκινήσετε, λάβετε υπόψη τις ακόλουθες συμβουλές για βέλτιστη απόδοση:
+*   <strong>Για μικρά σύνολα δεδομένων (λιγότερες από 50 στήλες)</strong>: Χρησιμοποιήστε την επιλογή "Απευθείας Λήψη CSV".
+*   <strong>Για μεγάλα σύνολα δεδομένων (περισσότερες από 50 στήλες)</strong>: Συνιστάται η χρήση της επιλογής "Δημιουργία Κωδικού Κοινής Χρήσης" για αξιόπιστη εξαγωγή.
+*   <strong>Εάν αντιμετωπίσετε σφάλματα</strong>: Δοκιμάστε να μειώσετε τον αριθμό των στηλών ή να χρησιμοποιήσετε την επιλογή κωδικού κοινής χρήσης.
+*   <strong>Φιλτράρισμα χώρας</strong>: Μπορείτε να φιλτράρετε προαιρετικά τα δεδομένα ανά συγκεκριμένες χώρες για να μειώσετε το μέγεθος της εξαγωγής.
+*   Οι μεγάλες εξαγωγές μπορεί να διαρκέσουν αρκετά λεπτά. Η επιλογή κωδικού κοινής χρήσης είναι πιο αξιόπιστη για μεγάλα σύνολα δεδομένων.</p>
+<h3 id="_7">Βήματα Εξαγωγής Δεδομένων</h3>
+<p>Η διαδικασία εξαγωγής δεδομένων γίνεται επιλέγοντας με τη σειρά:</p>
+<ol>
+<li>
+<p><strong>Επιλογή Μεθόδου Ρύθμισης.</strong> Αρχικά, επιλέξτε πώς θέλετε να ρυθμίσετε την εξαγωγή σας:</p>
+<ul>
+<li><strong>Μεταφόρτωση Αρχείου Διαμόρφωσης</strong>: Εάν διαθέτετε ένα έτοιμο αρχείο διαμόρφωσης JSON, μπορείτε να το ανεβάσετε. Το σύστημα θα φορτώσει τις ρυθμίσεις από αυτό.</li>
+<li><strong>Χειροκίνητη Επιλογή</strong>: Εάν δεν έχετε αρχείο διαμόρφωσης, μπορείτε να προχωρήσετε με την χειροκίνητη επιλογή των παραμέτρων βήμα-βήμα.</li>
+</ul>
+<p><img alt="Επιλογή μεθόδου ρύθμισης εξαγωγής" src="../images/chapter3/12.png" /></p>
+<p><em>Μορφή αρχείου διαμόρφωσης:</em>
+Εάν επιλέξετε "Μεταφόρτωση Αρχείου Διαμόρφωσης", το αρχείο σας πρέπει να έχει την ακόλουθη μορφή JSON:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;cycle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PISA_2012&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PISA_2012_Cognitive_Item_Data&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PM155Q01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PM155Q04T&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PM192Q01T&quot;</span><span class="p">],</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;countries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GRC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;FRA&quot;</span><span class="p">],</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;export_option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<em>Περιγραφές πεδίων:</em>
+*   <code>cycle</code> (string): Το όνομα του κύκλου PISA (π.χ. <code>PISA_2012</code>).
+*   <code>table</code> (string): Το πλήρες όνομα του πίνακα.
+*   <code>columns</code> (array): Λίστα ονομάτων στηλών για εξαγωγή.
+*   <code>countries</code> (array): Προαιρετική λίστα κωδικών χωρών (π.χ. <code>["USA", "GRC"]</code>).
+*   <code>export_option</code> (string): Είτε <code>"direct"</code> (για απευθείας λήψη) είτε <code>"share"</code> (για δημιουργία κωδικού κονητη επιλογή.</p>
+</li>
+<li>
+<p><strong>Επιλογή Κύκλου.</strong> Επιλέξτε τον κύκλο PISA (π.<code>,</code>PISA_2022`) από την αναπτυσσόμενη λίστα.</p>
+<p><img alt="Επιλογή κύκλου PISA για την εξαγωγή" src="../images/chapter3/13.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Πίνακα.</strong> Επιλέξτε τον συγκεκριμένο πίνακα από τους διαθέσιμους για τον επιλεγμένο κύκλο.</p>
+<p><img alt="Επιλογή πίνακα δεδομένων από τον επιλεγμένο κύκλο" src="../images/chapter3/14.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Στηλών.</strong> Σε αυτό το βήμα, εμφανίζεται ένας πίνακας με όλες τις στήλες του επιλεγμένου πίνακα. Μπορείτε να επιλέξετε τις στήλες που θέτετε να συμπεριλάβετε στην εξαγωγή, χρησιμοποιώντας τα πλαίσια ελέγχου. Υπάρχουν επίσης επιλογές για "Επιλογή Όλων των Στηλών" ή "Αποεπιλογή Όλων των Στηλών".</p>
+<p><img alt="Επιλογή στηλών για εξαγωγή" src="../images/chapter3/15.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογές Φίλτρου.</strong> Εδώ μπορείτε προαιρετικά να φιλτράρετε τα δεδομένα ανά χώρα. Επιλέξτε μία ή περισσότερες χώρες από την αναπτυσσόμενη λίστα. Εάν δεν επιλέξετε καμία χώρα, η εξαγωγή θα περιλαμβάνει δεδομένα από όλες τις χώρες.</p>
+<p><img alt="Επιλογή χωρών για φιλτράρισμα" src="../images/chapter3/16.png" /></p>
+</li>
+<li>
+<p><strong>Εξαγωγή Δεδομένων.</strong> Στο τελικό βήμα, επιλέξτε τον τρόπο εξαγωγής των δεδομένων:</p>
+<ul>
+<li><strong>Απευθείας Λήψη CSV</strong>: Κατεβάζει το αρχείο CSV απευθείας στον υπολογιστή σας. Συνιστάται για μικρά σύνολα δεδομένων.</li>
+<li><strong>Δημιουργία Κωδικού Κοινής Χρήσης</strong>: Δημιουργίζει έναν μοναδικό κωδικό που μπορείτε να χρησιμοποιήσετε για να κατεβάσετε το αρχείο αργότερα ή να το μοιραστείτε με άλλους. Συνιστάται για μεγάλα σύνολα δεδομένων.</li>
+</ul>
+<p><img alt="Επιλογές εξαγωγής και κατάσταση" src="../images/chapter3/17.png" /></p>
+<p><em>Εάν επιλέξετε "Δημιουργία Κωδικού Κοινής Χρήσης", ο κωδικός θα εμφανιστεί στην οθόνη και μπορείτε να τον χρησιμοποιήσετε στην ειδική σελίδα λήψης αρχείων.</em></p>
+<p><img alt="Δημιουργία κωδικού κοινής χρήσης για λήψη αρχείου" src="../images/chapter3/18.png" /></p>
+</li>
+</ol>
+<h2 id="34">3.4 Τάσεις Μεταβλητών Ανά Κύκλο</h2>
+<p>Η λειτουργία "Τάσεις Μεταβλητών ανά Κύκλο" επιτρέπει στους χρήστες να εξερευνήσουν την εξέλιξη συγκεκριμένων μεταβλητών σε διάφορους κύκλους των μελετών PISA, εμφανίζοντας τα αποτελέσματα σε ένα διαδραστικό γράφημα. Η ανάλυση γίνεται επιλέγοντας με τη σειρά:</p>
+<ol>
+<li>
+<p><strong>Επιλογή Μεθόδου Ρύθμισης.</strong> Αρχικά, επιλέξτε πώς θέτετε να ρυθμίσετε την ανάλυσή σας:</p>
+<ul>
+<li><strong>Μεταφόρτωση Αρχείου Διαμόρφωσης</strong>: Εάν διαθέτετε ένα έτοιμο αρχείο διαμόρφωσης JSON, μπορείτε να το ανεβάσετε. Το σύστημα θα φορτώσει τις ρυθμίσεις από αυτό.</li>
+<li><strong>Χειροκίνητη Επιλογή</strong>: Εάν δεν έχετε αρχείο διαμόρφωσης, μπορείτε να προχωρήσετε με την χειροκίνητη επιλογή των παραμέτρων βήμα-βήμα.</li>
+</ul>
+<p><img alt="Επιλογή μεθόδου ρύθμισης ανάλυσης" src="../images/chapter3/19.png" /></p>
+<p><em>Μορφή αρχείου διαμόρφωσης:</em>
+Εάν επιλέψετε "Μεταφόρτωση Αρχείου Διαμόρφωσης", το αρχείο σας πρέπει να έχει την ακόλουθη μορφή JSON:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Student Cognitive&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;cycles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;PISA_2006&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PISA_2009&quot;</span><span class="p">],</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;tables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;PISA_2006_Cognitive_Item_Data&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;PISA_2009_Cognitive_Item_Data&quot;</span><span class="p">],</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;M155Q01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;M155Q04T&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;M192Q01T&quot;</span><span class="p">],</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;countries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GRC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;USA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;AUS&quot;</span><span class="p">],</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">&quot;aggregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COUNT&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<em>Περιγραφές πεδίων:</em>
+*   <code>category</code> (string): Κατηγορία δεδομένων (π.χ. <code>"Student Cognitive"</code>).
+*   <code>cycles</code> (array): Λίστα κύκλων PISA.
+*   <code>tables</code> (array): Λίστα ονομάτων πινάκων.
+*   <code>variables</code> (array): Λίστα ονομάτων μεταβλητών.
+*   <code>countries</code> (array): Προαιρετική λίστα κωδικών χωρών.
+*   <code>aggregation</code> (string): <code>AVG</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>, <code>SUM</code>, <code>Percentage</code>. Προαιρετικό, προεπιλογή <code>AVG</code>.</p>
+</li>
+<li>
+<p><strong>Επιλογή Κατηγορίας &amp; Κύκλων.</strong> Επιλέξτε την κατηγορία δεδομένων (π.χ. "Ερωτηματολόγιο Μαθητή") και τους κύκλους PISA (π.χ. <code>PISA_2006</code>, <code>PISA_2009</code>) από τις αντίστοιχες λίστες.</p>
+<p><img alt="Επιλογή κατηγορίας και κύκλων PISA" src="../images/chapter3/20.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Πινάκων.</strong> Επιλέξτε τους πίνακες που θέλετε να χρησιμοποιήσετε για την ανάλυση από τη λίστα των διαθέσιμων πινάκων, οι οποίοι έχουν φιλτραριστεί με βάση την κατηγορία και τους κύκλους που επιλέξατε.</p>
+<p><img alt="Επιλογή πινάκων για ανάλυση" src="../images/chapter3/21.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Μεταβλητών.</strong> Εμφανίζεται ένας πίνακας με όλες τις διαθέσιμες στήλες (μεταβλητές) από τους επιλεγμένους πίνακες. Για κάθε μεταβλητή, βλέπετε το όνομά της, την περιγραφή της και τους πίνακες στους οποίους περιέχεται. Επιλέξτε τις μεταβλητές που επιθυμείτε χρησιμοποιώντας τα πλαίσια ελέγχου. Μπορείτε να χρησιμοποιήσετε τα κουμπιά "Επιλογή Όλων" και "Αποεπιλογή Όλων", καθώς και να φιλτράρετε τις μεταβλητές με κείμενο.</p>
+<p><img alt="Επιλογή μεταβλητών για ανάλυση" src="../images/chapter3/22.png" /></p>
+</li>
+<li>
+<p><strong>Φιλτράρισμα ανά Χώρα.</strong> Προαιρετικά, μπορείτε να επιλέξετε συγκεκριμένες χώρες για να περιορίσετε την ανάλυση. Εάν δεν επιλεγεί καμία χώρα, η ανάλυση θα γίνει για όλες τις διαθέσιμες χώρες.</p>
+<p><img alt="Επιλογή χωρών για φιλτράρισμα" src="../images/chapter3/23.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Συνάρτησης Συγκέντρωσης.</strong> Επιλέξτε τη συνάρτηση συγκέντρωσης (π.χ. <code>AVG</code>, <code>COUNT</code>, <code>Percentage</code>) που θα εφαρμοστεί στις επιλεγμένες μεταβλητές:</p>
+<ul>
+<li><strong>AVG, SUM, MIN, MAX</strong>: Λειτουργούν με αριθμητικές στήλες. Το σύστημα θα παραλείψει αυτόματα τις μη αριθμητικές και θα εμφανίσει προειδοποιήσεις.</li>
+<li><strong>COUNT</strong>: Μετράει τον αριθμό των μη-κενών τιμών σε κάθε στήλη. Λειτουργεί με όλους τους τύπους δεδομένων.</li>
+<li><strong>Percentage</strong>: Δείχνει την κατανομή των τιμών 1 και 2 ως ποσοστά (ιδανικό για δυαδικές μεταβλητές).</li>
+</ul>
+<p><img alt="Επιλογή συνάρτησης συγκέντρωσης" src="../images/chapter3/24.png" /></p>
+</li>
+<li>
+<p><strong>Προβολή Γραφήματος.</strong> Τα αποτελέσματα της ανάλυσης εμφανίζονται σε ένα διαδραστικό γράφημα.</p>
+<ul>
+<li>Εάν επιλέξατε <code>Percentage</code>, θα δείτε ένα ιστόγραμμα με στοίβαξη που απεικονίζει την ποσοστιαία κατανομή.</li>
+<li>Για άλλες συναθροίσεις, θα εμφανιστεί ένα γράφημα γραμμής που δείχνει την εξέλιξη της μεταβλητής.
+Τα γραφήματα περιλαμβάνουν εργαλεία για μεγέθυνση, μετατόπιση, προβολή δεδομένων και αποθήκευση εικόνας.</li>
+</ul>
+<p><img alt="Παράδειγμα γραφήματος γραμμής" src="../images/chapter3/25.png" /></p>
+<p><img alt="Παράδειγμα ιστογράμματος ποσοστών" src="../images/chapter3/26.png" /></p>
+</li>
+</ol>
+<h2 id="35-">3.5 Σύγκριση Δεδομένων Μαθητών-Σχολείων</h2>
+<p>Η λειτουργία "Σύγκριση Δεδομένων Μαθητών-Σχολείων" επιτρέπει στους χρήστες να συγκρίνουν δεδομένα από πίνακες μαθητών και πίνακες σχολείων. Αυτό επιτυγχάνεται με τη συνάθροιση δεδομένων μαθητών και τον συνδυασμό τους με αντίστοιχα δεδομένα από σχολεία, χρησιμοποιώντας ένα κοινό πεδίο (π.χ. αναγνωριστικό σχολείου). Η διαδικασία γίνεται επιλέγοντας με τη σειρά:</p>
+<ol>
+<li>
+<p><strong>Επιλογή Μεθόδου Ρύθμισης.</strong> Αρχικά, επιλέξτε πώς θέλετε να ρυθμίσετε τη σύγκρισή σας:</p>
+<ul>
+<li><strong>Μεταφόρτωση Αρχείου Διαμόρφωσης</strong>: Αν διαθέτετε ένα έτοιμο αρχείο διαμόρφωσης JSON, μπορείτε να το ανεβάσετε για να φορτώσετε τις ρυθμίσεις.</li>
+<li><strong>Χειροκίνητη Επιλογή</strong>: Αν δεν έχετε αρχείο διαμόρφωσης, προχωρήστε με την χειροκίνητη επιλογή των παραμέτρων βήμα-βήμα.</li>
+</ul>
+<p><img alt="Επιλογή μεθόδου ρύθμισης για σύγκριση" src="../images/chapter3/27.png" /></p>
+<p><em>Μορφή αρχείου διαμόρφωσης:</em>
+Εάν επιλέξετε "Μεταφόρτωση Αρχείου Διαμόρφωσης", το αρχείο σας πρέπει να έχει την ακόλουθη μορφή JSON:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;student_table&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PISA_2012_Student_Data&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;school_table&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PISA_2012_School_Data&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;common_column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CNTSCHID&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;student_column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PV1MATH&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;school_column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SC01Q01&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;agg_function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AVG&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&quot;countries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GRC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;FRA&quot;</span><span class="p">],</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">&quot;school_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<em>Περιγραφές πεδίων:</em>
+*   <code>student_table</code> (string): Όνομα πίνακα μαθητών.
+*   <code>school_table</code> (string): Όνομα πίνακα σχολείων.
+*   <code>common_column</code> (string): Κοινή στήλη για τη σύνδεση των πινάκων (π.χ. <code>CNTSCHID</code>).
+*   <code>student_column</code> (string): Στήλη μαθητών για συνάθροιση.
+*   <code>school_column</code> (string): Στήλη σχολείων για σύγκριση.
+*   <code>agg_function</code> (string): Συνάρτηση συνάθροισης (<code>AVG</code>, <code>SUM</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>).
+*   <code>countries</code> (array): Προαιρετική λίστα κωδικών χωρών.
+*   <code>school_ids</code> (array): Προαιρετική λίστα αναγνωριστικών σχολείων.</p>
+</li>
+<li>
+<p><strong>Επιλογή Πινάκων.</strong> Επιλέξτε τον πίνακα μαθητών (π.χ. <code>PISA_2018_Student_Data</code>) και τον πίνακα σχολείων (π.χ. <code>PISA_2018_School_Data</code>) από τις αναπτυσσόμενες λίστες.</p>
+<p><img alt="Επιλογή πίνακα μαθητών και πίνακα σχολείων" src="../images/chapter3/28.png" /></p>
+</li>
+<li>
+<p><strong>Επιλογή Στηλών &amp; Συνάρτησης Συγκέντρωσης.</strong> Επιλέξτε το κοινό πεδίο (π.χ. <code>CNTSCHID</code>) που συνδέει τους δύο πίνακες, τη μεταβλητή μαθητών για συνάθροιση, τη μεταβλητή σχολείων για σύγκριση και τη συνάρτηση συγκέντρωσης (π.χ. <code>AVG</code>, <code>SUM</code>, <code>COUNT</code>) που θα εφαρμοστεί στα δεδομένα των μαθητών.</p>
+<p><img alt="Επιλογή κοινού πεδίου, μεταβλητών και συνάρτησης συγκέντρωσης" src="../images/chapter3/29.png" /></p>
+</li>
+<li>
+<p><strong>Εφαρμογή Φίλτρων.</strong> Προαιρετικά, εφαρμόστε φίλτρα στα δεδομένα. Μπορείτε να φιλτράρετε ανά Χώρα (CNT) και ανά Αναγνωριστικό Σχολείου (CNTSCHID). Αφού ορίσετε τα φίλτρα, πατήστε "Εκτέλεση Ερωτήματος".</p>
+<p><img alt="Επιλογή φίλτρων ανά χώρα και αναγνωριστικό σχολείου" src="../images/chapter3/30.png" /></p>
+</li>
+<li>
+<p><strong>Προβολή Αποτελεσμάτων.</strong> Τα αποτελέσματα της σύγκρισης θα εμφανιστούν σε έναν πίνακα. Μπορείτε να επιλέξετε ποιες στήλες θέλετε να προβάλετε χρησιμοποιώντας τα αντίστοιχα πλαίσια ελέγχου.</p>
+<p><img alt="Προβολή αποτελεσμάτων σύγκρισης και επιλογή στηλών" src="../images/chapter3/31.png" /></p>
+</li>
+<li>
+<p><strong>Λήψη Δεδομένων.</strong> Στο τελευταίο βήμα, εμφανίζεται μια προεπισκόπηση των δεδομένων. Επιλέξτε τη μορφή αρχείου (CSV, Excel, JSON) στην οποία θέτετε να γίνει η λήψη των αποτελεσμάτων. Παρέχονται επίσης κουμπιά για να επιστρέψετε σε προηγούμενο βήμα ή να ξεκινήσετε τη διαδικασία από την αρχή.</p>
+<p><img alt="Λήψη αποτελεσμάτων σε επιθυμητή μορφή αρχείου" src="../images/chapter3/32.png" /></p>
+</li>
+</ol>
+<h2 id="36">3.6 Αναζήτηση &amp; Ανακάλυψη Στηλών</h2>
+<p>Η λειτουργία "Αναζήτηση &amp; Ανακάλυψη Στηλών" επιτρέπει στους χρήστες να βρίσκουν στήλες σε όλους τους πίνακες της βάσης δεδομένων χρησιμοποιώντας σύνθετα μοτίμα αναζήτησης (regex - κανονικές εκφράσεις). Τα επιλεγμένα ζεύγη πίνακας:στήλη μπορούν να συλλεχθούν σε ένα "καλάθι" και να εξαχθούν σε ένα ενιαίο αρχείο CSV.</p>
+<h3 id="_8">Ροή Εργασίας:</h3>
+<ol>
+<li><strong>Αναζητήστε</strong> στήλες χρησιμοποιώντας μοτίβα regex.</li>
+<li><strong>Επιλέξτε</strong> τα ζεύγη πίνακας:στήλη που θέτετε από τα αποτελέσματα.</li>
+<li><strong>Προσθήκη στο Καλάθι</strong> για να αποθηκεύσετε τις επιλογές σας.</li>
+<li><strong>Επαναλάβετε</strong> τις αναζητήσεις για να προσθέσετε περισσότερες στήλες.</li>
+<li><strong>Εξαγωγή σε CSV</strong> όταν είστε έτοιμοι.</li>
+</ol>
+<h3 id="_9">Βήματα Αναζήτησης &amp; Εξαγωγής:</h3>
+<ol>
+<li>
+<p><strong>Εισαγωγή μοτίβου αναζήτησης.</strong> Στο πεδίο "Εισάγετε ένα μοτίβο regex για φιλτράρισμα στηλών:", πληκτρολογήστε το μοτίβο regex που θέτετε να χρησιμοποιήσετε (π.χ. <code>SC*</code>, <code>*AGE*</code>, <code>CM03*</code>).</p>
+<p><img alt="Εισαγωγή μοτίβου αναζήτησης Regex" src="../images/chapter3/33.png" />
+<em>Χαρακτηριστικά αναζήτησης:</em>
+*   <strong>Πραγματικού χρόνου streaming</strong>: Δείτε τα αποτελέσματα καθώς βρίσκονται.
+*   <strong>Παρακολούθηση προόδου</strong>: Παρακολουθήστε την πρόοδο αναζήτησης στους πίνακες.
+*   <strong>Αντιστοίχιση μοτίβων</strong>: Χρησιμοποιήστε <code>*</code> ως wildcard για ευέλικτες αναζητήσεις.</p>
+</li>
+<li>
+<p><strong>Προβολή και επιλογή αποτελεσμάτων.</strong> Τα αποτελέσματα εμφανίζονται καθώς βρίσκονται, με το όνομα του πίνακα, το όνομα της στήλης και την ετικέτα της. Επιλέξτε τα ζεύγη πίνακας:στήλη που σας ενδιαφέρουν χρησιμοποιώντας τα πλαίσια ελέγχου.</p>
+<p><img alt="Προβολή και επιλογή αποτελεσμάτων αναζήτησης" src="../images/chapter3/34.png" /></p>
+</li>
+<li>
+<p><strong>Προσθήκη στο Καλάθι.</strong> Πατήστε το κουμπί <strong>"➕ Προσθήκη Επιλεγμένων στο Καλάθι"</strong> για να προσθέσετε τις επιλεγμένες στήλες στο καλάθι σας. Μπορείτε να εκτελέσετε πολλαπλές αναζητήσεις και να προσθέτετε στήλες στο ίδιο καλάθι.</p>
+<p><img alt="Προσθήκη επιλεγμένων στηλών στο καλάθι" src="../images/chapter3/35.png" /></p>
+</li>
+<li>
+<p><strong>Διαχείριση Καλαθιού.</strong> Στην ενότητα "Επιλεγμένο Καλάθι", μπορείτε να δείτε όλα τα στοιχεία που έχετε συλλέξει.</p>
+<ul>
+<li><strong>Προβολή ανά Πίνακα</strong>: Δείτε τις στήλες ομαδοποιημένες ανά πίνακα.</li>
+<li><strong>Διαχείριση</strong>: Μπορείτε να αφαιρέσετε μεμονωμένα στοιχεία χρησιμοποιώντας τα πλαίσια ελέγχου και το κουμπί <strong>"🗑️ Αφαίρεση Επιλεγμένων"</strong>, ή να εκκαθαρίσετε ολόκληρο το καλάθι με το κουμπί <strong>"🧹 Εκκαθάριση Όλων"</strong>.</li>
+</ul>
+<p><img alt="Διαχείριση στοιχείων στο καλάθι" src="../images/chapter3/36.png" /></p>
+</li>
+<li>
+<p><strong>Εξαγωγή Δεδομένων.</strong> Όταν είστε έτοιμοι να εξάγετε τα δεδομένα από τις στήλες που έχετε συλλέξει στο καλάθι σας, πατήστε το κουμπί <strong>"Εξαγωγή σε CSV"</strong>. Τα δεδομένα θα ανακτηθούν από τους αντίστοιχους πίνακες και θα γίνει λήψη ως ενιαίο αρχείο CSV.</p>
+<p><img alt="Εξαγωγή δεδομένων από το καλάθι σε CSV" src="../images/chapter3/37.png" /></p>
+</li>
+</ol>
+<h2 id="37">3.7 Οπτικοποίηση Δεδομένων Χωρών</h2>
+<p>Η λειτουργία "Οπτικοποίηση Δεδομένων Χωρών PISA" επιτρέπει στους χρήστες να οπτικοποιήσουν δεδομένα PISA σε έναν διαδραστικό χάρτη, δείχνοντας την κατανομή μιας συγκεκριμένης μεταβλητής ανά χώρα.</p>
+<p>Η διαδικασία για την προβολή ενός χάρτη δεδομένων χωρών γίνεται επιλέγοντας με τη σειρά:</p>
+<ol>
+<li>
+<p>Τον <strong>πίνακα</strong> από τον οποίο θα αντληθούν τα δεδομένα για την κατασκευή του χάρτη, επιλέγοντας από την αναπτυσσόμενη λίστα.</p>
+<p><img alt="Επιλογή πίνακα για οπτικοποίηση χάρτη" src="../images/chapter3/38.png" /></p>
+</li>
+<li>
+<p>Αφού επιλεγεί ο πίνακας, ο <strong>χάρτης</strong> θα δημιουργηθεί και θα εμφανιστεί αυτόματα, απεικονίζοντας την κατανομή των δεδομένων ανά χώρα. Ο χάρτης είναι διαδραστικός και επιτρέπει μεγέθυνση και μετατόπιση.</p>
+<p><img alt="Διαδραστικός χάρτης κατανομής δεδομένων ανά χώρα" src="../images/chapter3/39.png" /></p>
+</li>
+</ol>
+<h2 id="38-sql">3.8 Προσαρμοσμένα Ερωτήματα SQL</h2>
+<p>Η λειτουργία "Προσαρμοσμένα Ερωτήματα SQL" απευθύνεται σε χρήστες με γνώσεις SQL και επιτρέπει την απευθείας εκτέλεση ερωτημάτων στη βάση δεδομένων. Αυτή η λειτουργία προσφέρει μεγαλύτερη ευελιξία στην εξαγωγή και ανάλυση δεδομένων.</p>
+<h3 id="_10">Σημαντικές Σημειώσεις:</h3>
+<ul>
+<li>Για την εκτέλεση ερωτημάτων SQL, είναι απαραίτητο ο χρήστης να είναι συνδεδεμένος στην εφαρμογή.</li>
+<li>Για μεγάλους πίνακες, συνιστάται η χρήση όρων <code>WHERE</code> (για φιλτράρισμα) ή <code>LIMIT</code> (για περιορισμό του αριθμού των γραμμών) στα ερωτήματά σας. Ερωτήματα που επιστρέφουν όλες τις γραμμές από μεγάλους πίνακες ενδέχεται να περιοριστούν στις 1000 γραμμές.</li>
+<li><strong>Παράδειγμα:</strong> <code>SELECT CPISA_2022_Cognitive_Item_Data7_MSU_STU_QQQ;</code></li>
+</ul>
+<h3 id="_11">Βήματα Εκτέλεσης Ερωτήματος:</h3>
+<p>Η διαδικασία εκτέλεσης ενός ερωτήματος SQL γίνεται επιλέγοντας με τη σειρά:</p>
+<ol>
+<li>
+<p>Την <strong>εισαγωγή του ερωτήματος SQL</strong> στο πεδίο κειμένου "Εισάγετε το SQL ερώτημά σας:" </p>
+<p><img alt="Εισαγωγή SQL ερωτήματος" src="../images/chapter3/40.png" /></p>
+</li>
+<li>
+<p>Την <strong>εκτέλεση του ερωτήματος</strong> πατώντας το κουμπί <strong>"Εκτέλεση Ερωτήματος"</strong>.</p>
+</li>
+<li>
+<p>Την <strong>προβολή των αποτελεσμάτων</strong> στην οθόνη. Εφόσον το ερώτημα επιστρέψει δεδομένα, αυτά μπορούν να μεταφορτωθούν ως αρχείο CSV, πατώντας το κουμπί <strong>"Λήψη ως CSV"</strong> </p>
+<p><img alt="Αποτελέσματα SQL ερωτήματος" src="../images/chapter3/41.png" /></p>
+</li>
+</ol>
+<h2 id="39">3.9 Πίνακας Διαχείρισης Διαχειριστή</h2>
+<p>Ο "Πίνακας Διαχείρισης Διαχειριστή" είναι μια ειδική λειτουργία που προορίζεται αποκλειστικά για χρήστες με ρόλο διαχειριστή. Παρέχει εργαλεία για τη διαχείριση χρηστών, την παρακολούθηση στατιστικών και τη διαχείριση της βάσης δεδομένων της εφαρμογής.</p>
+<h3 id="_12">Σημαντικές Σημειώσεις:</h3>
+<ul>
+<li>Αυτή η σελίδα είναι προσβάσιμη μόνο από χρήστες με ρόλο <strong>"διαχειριστή"</strong>. Εάν δεν είστε συνδεδεμένοι ως διαχειριστής, η πρόσβαση θα απορριφθεί.</li>
+</ul>
+<p>Η λειτουργία χωρίζεται σε τέσσερις κύριες καρτέλες: "Όλοι οι Χρήστες", "Εκκρεμείς Εγκρίσεις", "Στατιστικά" και "Database Maintenance".</p>
+<h3 id="_13">Καρτέλα "Όλοι οι Χρήστες"</h3>
+<p>Αυτή η καρτέλα επιτρέπει την πλήρη διαχείριση όλων των εγγεγραμμένων χρηστών:
+1.  <strong>Σύνοψη Χρηστών.</strong> Εμφανίζει συνολικά στατιστικά για τους χρήστες (πλήθος συνολικών, ενεργών, εκκρεμών και αποκλεισμένων χρηστών).</p>
+<p><img alt="Σύνοψη χρηστών" src="../images/chapter3/42.png" /></p>
+<ol>
+<li>
+<p><strong>Φιλτράρισμα Χρηστών.</strong> Μπορείτε να φιλτράρετε τη λίστα των χρηστών με βάση την κατάσταση ("Ενεργοί", "Εκκρεμείς", "Αποκλεισμένοι") και τον ρόλο ("διαχειριστής", "χρήστης").</p>
+<p><img alt="Επιλογές φιλτραρίσματος χρηστών" src="../images/chapter3/43.png" /></p>
+</li>
+<li>
+<p><strong>Λίστα Χρηστών και Διαχείριση.</strong> Εμφανίζεται μια αναλυτική λίστα των χρηστών. Για κάθε χρήστη, μπορείτε να δείτε λεπτομέρειες και να εκτελέσετε ενέργειες:</p>
+<ul>
+<li><strong>Έγκριση/Αποκλεισμός/Ξεμπλοκάρισμα</strong>: Αλλαγή της κατάστασης του λογαριασμού.</li>
+<li><strong>Διαγραφή</strong>: Διαγραφή του λογαριασμού χρήστη.</li>
+<li><strong>Αλλαγή Ρόλου</strong>: Αλλαγή του ρόλου του χρήστη μεταξύ "διαχειριστή" και "χρήστη".</li>
+</ul>
+<p><img alt="Λεπτομέρειες χρήστη και διαθέσιμες ενέργειες" src="../images/chapter3/44.png" /></p>
+</li>
+</ol>
+<h3 id="_14">Καρτέλα "Εκκρεμείς Εγκρίσεις"</h3>
+<p>Αυτή η καρτέλα εστιάζει στους χρήστες που έχουν κάνει εγγραφή αλλά αναμένουν έγκριση:
+1.  <strong>Λίστα Εκκρεμών Χρηστών.</strong> Εμφανίζει τους χρήστες που έχουν κατάσταση "εκκρεμείς".
+2.  <strong>Έγκριση/Απόρριψη.</strong> Για κάθε εκκρεμή χρήστη, μπορείτε να τον <strong>"Έγκριση"</strong> (ενεργοποιώντας τον λογαριασμό του) ή να τον <strong>"Απόρριψη"</strong> (διαγράφοντας την εγγραφή του).</p>
+<p><img alt="Διαχείριση εκκρεμών εγκρίσεων" src="../images/chapter3/45.png" /></p>
+<h3 id="_15">Καρτέλα "Στατιστικά"</h3>
+<p>Η καρτέλα "Στατιστικά" παρέχει γραφήματα και πίνακες με συνολικές πληροφορίες για τη βάση χρηστών:
+1.  <strong>Κατανομή Καταστάσεων.</strong> Ραβδόγραμμα που δείχνει την κατανομή των χρηστών ανά κατάσταση (Ενεργοί, Εκκρεμείς, Αποκλεισμένοι).
+2.  <strong>Κατανομή Ρόλων.</strong> Ραβδόγραμμα που δείχνει την κατανομή των χρηστών ανά ρόλο (διαχειριστής, χρήστης).
+3.  <strong>Επισκόπηση Όλων των Χρηστών.</strong> Πίνακας με αναλυτικά στοιχεία όλων των χρηστών.</p>
+<p><img alt="Στατιστικά και κατανομή χρηστών" src="../images/chapter3/46.png" /></p>
+<h3 id="database-maintenance">Καρτέλα "Database Maintenance" (Συντήρηση Βάσης Δεδομένων)</h3>
+<p>Αυτή η καρτέλα είναι κρίσιμη για τη διαχείριση της βάσης δεδομένων και απαιτεί προσοχή:
+1.  <strong>Περιγραφή Λειτουργίας Συντήρησης.</strong> Εξηγεί τι περιλαμβάνει η "Πλήρης Λειτουργία Συντήρησης" (ανέβασμα αρχείων SAV, δημιουργία/επαναφορά αντιγράφων, συμπίεση βάσης δεδομένων). Επίσης, περιγράφει τι συμβαίνει στο σύστημα όταν βρίσκεται σε αυτή τη λειτουργία.
+2.  <strong>Εναλλαγή σε Λειτουργία Συντήρησης.</strong> Παρέχει ένα κουμπί "Εναλλαγή σε Λειτουργία Συντήρησης". Με την ενεργοποίηση του, το σύστημα θα μεταβεί σε ένα ειδικό περιβάλλον συντήρησης. <strong>Σημαντικό:</strong> Κατά τη διάρκεια αυτής της εναλλαγής, η πρόσβαση των χρηστών στο κύριο σύστημα διακόπτεται.</p>
+<p><img alt="Εναλλαγή σε λειτουργία συντήρησης" src="../images/chapter3/47.png" /></p>
+<ol>
+<li><strong>Οδηγίες Εισόδου/Εξόδου.</strong> Παρέχονται αναλυτικές οδηγίες για το πώς να εισέλθετε και να εξέλθετε από τη λειτουργία συντήρησης.</li>
+<li>
+<p><strong>Τι Συμβαίνει κατά τη Διάρκεια της Εναλλαγής.</strong> Λεπτομερής περιγραφή των διεργασιών που εκτελούνται κατά την εναλλαγή μεταξύ κανονικής λειτουργίας και λειτουργίας συντήρησης.</p>
+<p><img alt="Οδηγίες και περιγραφή λειτουργίας συντήρησης" src="../images/chapter3/48.png" /></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "-navigation.tabs -content.code.copy", "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
