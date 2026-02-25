@@ -8,5 +8,6 @@ dependencies = [
     "material>=0.1",
     "mkdocs>=1.6.1",
     "mkdocs-awesome-pages-plugin>=2.10.1",
+    "mkdocs-glightbox>=0.5.2",
     "mkdocs-material>=9.7.1",
 ]

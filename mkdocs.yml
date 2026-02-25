@@ -42,6 +42,7 @@ extra_css:
 plugins:
     - search
     - awesome-pages
+    - glightbox
 
 copyright: | 
   &copy 2025
